@@ -12,6 +12,16 @@ const badgeVariants = cva(
         secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
         destructive: "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
+        // Risk severity variants
+        riskHigh: "border-transparent bg-red-100 text-red-800",
+        riskMedium: "border-transparent bg-amber-100 text-amber-800",
+        riskLow: "border-transparent bg-green-100 text-green-800",
+        // Impact variants
+        impactHigh: "border-transparent bg-primary/10 text-primary font-medium",
+        impactMedium: "border-transparent bg-muted text-muted-foreground font-medium",
+        impactLow: "border-transparent bg-secondary text-secondary-foreground font-medium",
+        // Document type
+        documentType: "border-primary/20 bg-primary/5 text-primary font-medium px-3 py-1",
       },
     },
     defaultVariants: {
