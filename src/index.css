@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,49 +6,49 @@
 
 @layer base {
   :root {
-    /* DocExplain Design System - Warm, Trustworthy, Professional */
+    /* DocExplain Design System - Elegant, Modern, Trustworthy */
     
-    /* Core Colors */
-    --background: 40 33% 98%;
-    --foreground: 222 47% 11%;
+    /* Core Colors - Refined warm neutrals */
+    --background: 45 20% 97%;
+    --foreground: 240 10% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 240 10% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 240 10% 12%;
 
-    /* Primary - Deep Slate Blue (Trust, Professionalism) */
-    --primary: 222 47% 20%;
-    --primary-foreground: 40 33% 98%;
+    /* Primary - Rich Indigo (Trust, Intelligence) */
+    --primary: 250 60% 46%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Warm Cream */
-    --secondary: 40 33% 94%;
-    --secondary-foreground: 222 47% 11%;
+    /* Secondary - Soft Sage */
+    --secondary: 155 25% 94%;
+    --secondary-foreground: 240 10% 12%;
 
     /* Muted */
-    --muted: 40 20% 92%;
-    --muted-foreground: 220 13% 46%;
+    --muted: 45 15% 92%;
+    --muted-foreground: 240 5% 46%;
 
-    /* Accent - Warm Amber */
-    --accent: 38 92% 50%;
-    --accent-foreground: 222 47% 11%;
+    /* Accent - Warm Coral */
+    --accent: 16 85% 58%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 88%;
-    --input: 220 20% 88%;
-    --ring: 222 47% 20%;
+    --border: 240 10% 88%;
+    --input: 240 10% 88%;
+    --ring: 250 60% 46%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     /* Custom Semantic Colors */
-    --success: 142 71% 45%;
+    --success: 152 60% 42%;
     --success-foreground: 0 0% 100%;
     
     --warning: 38 92% 50%;
-    --warning-foreground: 222 47% 11%;
+    --warning-foreground: 240 10% 12%;
     
     --info: 199 89% 48%;
     --info-foreground: 0 0% 100%;
@@ -56,76 +56,91 @@
     /* Risk Severity Colors */
     --risk-high: 0 72% 51%;
     --risk-medium: 38 92% 50%;
-    --risk-low: 142 71% 45%;
+    --risk-low: 152 60% 42%;
 
     /* Impact Colors */
-    --impact-high: 222 47% 20%;
-    --impact-medium: 220 13% 46%;
-    --impact-low: 220 20% 70%;
+    --impact-high: 250 60% 46%;
+    --impact-medium: 240 5% 46%;
+    --impact-low: 240 10% 70%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 20%) 0%, hsl(222 47% 35%) 100%);
-    --gradient-warm: linear-gradient(135deg, hsl(40 33% 98%) 0%, hsl(38 40% 95%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 33% 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(250 60% 46%) 0%, hsl(280 65% 55%) 50%, hsl(16 85% 58%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(45 20% 97%) 0%, hsl(155 25% 96%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(45 20% 98%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(250 60% 46% / 0.15), transparent 70%);
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(280 65% 55% / 0.08) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(16 85% 58% / 0.06) 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, hsl(250 60% 46% / 0.06) 0px, transparent 50%);
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.08), 0 2px 4px -2px hsl(222 47% 11% / 0.05);
-    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.08), 0 4px 6px -4px hsl(222 47% 11% / 0.05);
-    --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.1), 0 8px 10px -6px hsl(222 47% 11% / 0.05);
-    --shadow-glow: 0 0 40px hsl(38 92% 50% / 0.15);
+    --shadow-sm: 0 1px 2px 0 hsl(240 10% 12% / 0.04);
+    --shadow-md: 0 4px 6px -1px hsl(240 10% 12% / 0.06), 0 2px 4px -2px hsl(240 10% 12% / 0.04);
+    --shadow-lg: 0 10px 15px -3px hsl(240 10% 12% / 0.08), 0 4px 6px -4px hsl(240 10% 12% / 0.04);
+    --shadow-xl: 0 25px 50px -12px hsl(240 10% 12% / 0.15);
+    --shadow-glow: 0 0 60px hsl(250 60% 46% / 0.12);
+    --shadow-glow-accent: 0 0 40px hsl(16 85% 58% / 0.15);
 
-    /* Typography Scale */
-    --font-sans: 'DM Sans', system-ui, sans-serif;
+    /* Typography */
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
 
     /* Sidebar */
-    --sidebar-background: 40 33% 98%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 222 47% 20%;
-    --sidebar-primary-foreground: 40 33% 98%;
-    --sidebar-accent: 40 33% 94%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 220 20% 88%;
-    --sidebar-ring: 222 47% 20%;
+    --sidebar-background: 45 20% 97%;
+    --sidebar-foreground: 240 10% 12%;
+    --sidebar-primary: 250 60% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 155 25% 94%;
+    --sidebar-accent-foreground: 240 10% 12%;
+    --sidebar-border: 240 10% 88%;
+    --sidebar-ring: 250 60% 46%;
   }
 
   .dark {
-    --background: 222 47% 8%;
-    --foreground: 40 33% 96%;
+    --background: 240 15% 8%;
+    --foreground: 45 20% 96%;
 
-    --card: 222 47% 11%;
-    --card-foreground: 40 33% 96%;
+    --card: 240 15% 11%;
+    --card-foreground: 45 20% 96%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 40 33% 96%;
+    --popover: 240 15% 11%;
+    --popover-foreground: 45 20% 96%;
 
-    --primary: 38 92% 50%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 250 70% 62%;
+    --primary-foreground: 240 15% 8%;
 
-    --secondary: 222 32% 17%;
-    --secondary-foreground: 40 33% 96%;
+    --secondary: 240 12% 16%;
+    --secondary-foreground: 45 20% 96%;
 
-    --muted: 222 32% 17%;
-    --muted-foreground: 220 20% 65%;
+    --muted: 240 12% 16%;
+    --muted-foreground: 240 10% 60%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 16 85% 58%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62% 45%;
+    --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 32% 20%;
-    --input: 222 32% 20%;
-    --ring: 38 92% 50%;
+    --border: 240 12% 18%;
+    --input: 240 12% 18%;
+    --ring: 250 70% 62%;
 
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 40 33% 96%;
-    --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 222 32% 17%;
-    --sidebar-accent-foreground: 40 33% 96%;
-    --sidebar-border: 222 32% 20%;
-    --sidebar-ring: 38 92% 50%;
+    --gradient-hero: linear-gradient(135deg, hsl(250 70% 62%) 0%, hsl(280 65% 55%) 50%, hsl(16 85% 58%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(250 70% 62% / 0.2), transparent 70%);
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(280 65% 55% / 0.12) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(16 85% 58% / 0.08) 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, hsl(250 70% 62% / 0.1) 0px, transparent 50%);
+
+    --shadow-glow: 0 0 60px hsl(250 70% 62% / 0.2);
+    --shadow-glow-accent: 0 0 40px hsl(16 85% 58% / 0.2);
+
+    --sidebar-background: 240 15% 8%;
+    --sidebar-foreground: 45 20% 96%;
+    --sidebar-primary: 250 70% 62%;
+    --sidebar-primary-foreground: 240 15% 8%;
+    --sidebar-accent: 240 12% 16%;
+    --sidebar-accent-foreground: 45 20% 96%;
+    --sidebar-border: 240 12% 18%;
+    --sidebar-ring: 250 70% 62%;
   }
 }
 
@@ -141,42 +156,56 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    background-image: var(--gradient-mesh);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
   }
 }
 
 @layer components {
+  /* Glass morphism card */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl;
+    box-shadow: var(--shadow-lg), inset 0 1px 0 0 hsl(0 0% 100% / 0.05);
+  }
+
   /* Upload Zone Styling */
   .upload-zone {
-    @apply relative border-2 border-dashed border-border rounded-xl p-8 transition-all duration-300 ease-out;
-    @apply hover:border-primary/50 hover:bg-secondary/50;
-    @apply focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20;
+    @apply relative border-2 border-dashed border-border rounded-2xl p-8 transition-all duration-500 ease-out;
+    @apply hover:border-primary/50 hover:bg-primary/5 hover:scale-[1.01];
+    @apply focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10;
+    background: var(--gradient-card);
   }
 
   .upload-zone.dragging {
-    @apply border-primary bg-primary/5 scale-[1.02];
+    @apply border-primary bg-primary/10 scale-[1.02];
+    box-shadow: var(--shadow-glow);
   }
 
   /* Result Section Cards */
   .result-section {
-    @apply bg-card rounded-xl p-6 shadow-md border border-border/50;
+    @apply bg-card rounded-2xl p-6 shadow-lg border border-border/50;
     background: var(--gradient-card);
   }
 
   /* Risk Badge Variants */
   .risk-badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide;
   }
 
   .risk-badge-high {
-    @apply bg-red-100 text-red-800;
+    @apply bg-red-500/15 text-red-600 dark:text-red-400;
   }
 
   .risk-badge-medium {
-    @apply bg-amber-100 text-amber-800;
+    @apply bg-amber-500/15 text-amber-600 dark:text-amber-400;
   }
 
   .risk-badge-low {
-    @apply bg-green-100 text-green-800;
+    @apply bg-emerald-500/15 text-emerald-600 dark:text-emerald-400;
   }
 
   /* Impact Indicator */
@@ -198,7 +227,7 @@
 
   /* Prose for explanations */
   .prose-explain {
-    @apply text-foreground/90 leading-relaxed;
+    @apply text-foreground/85 leading-relaxed;
   }
 
   .prose-explain p {
@@ -210,7 +239,7 @@
   }
 
   .prose-explain li {
-    @apply text-foreground/80;
+    @apply text-foreground/75;
   }
 
   /* Page container */
@@ -221,6 +250,7 @@
   /* Section titles */
   .section-title {
     @apply text-xl font-semibold text-foreground mb-4 flex items-center gap-2;
+    font-family: var(--font-display);
   }
 
   /* Animated underline */
@@ -230,26 +260,83 @@
 
   .animated-underline::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300;
   }
 
   .animated-underline:hover::after {
     @apply w-full;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hero glow effect */
+  .hero-glow {
+    position: relative;
+  }
+
+  .hero-glow::before {
+    content: '';
+    position: absolute;
+    inset: -100px;
+    background: var(--gradient-glow);
+    z-index: -1;
+    filter: blur(60px);
+    opacity: 0.6;
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  /* Feature card hover */
+  .feature-card {
+    @apply glass-card p-6 transition-all duration-300;
+  }
+
+  .feature-card:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Mode selector tab */
+  .mode-tab {
+    @apply flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-sm font-medium transition-all duration-300;
+  }
+
+  .mode-tab-active {
+    @apply bg-card text-foreground shadow-md;
+  }
+
+  .mode-tab-inactive {
+    @apply text-muted-foreground hover:text-foreground hover:bg-card/50;
+  }
+
+  /* Floating shapes for visual interest */
+  .floating-shape {
+    @apply absolute rounded-full opacity-20 blur-3xl;
+    animation: float 20s ease-in-out infinite;
   }
 }
 
 @layer utilities {
   /* Custom animations */
   .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.6s ease-out forwards;
   }
 
   .animate-slide-up {
-    animation: slideUp 0.5s ease-out forwards;
+    animation: slideUp 0.6s ease-out forwards;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.3s ease-out forwards;
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
   }
 
   @keyframes fadeIn {
@@ -264,7 +351,7 @@
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -275,7 +362,7 @@
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: scale(0.95);
+      transform: scale(0.9);
     }
     to {
       opacity: 1;
@@ -283,15 +370,63 @@
     }
   }
 
-  /* Stagger children animations */
-  .stagger-children > * {
-    @apply animate-slide-up;
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(2deg);
+    }
   }
 
-  .stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
-  .stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
-  .stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
-  .stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
-  .stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
-  .stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Stagger children animations */
+  .stagger-children > * {
+    @apply animate-slide-up opacity-0;
+  }
+
+  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+  /* Shimmer effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(0 0% 100% / 0.1),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
 }

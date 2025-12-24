@@ -63,7 +63,7 @@ export function ThemeToggle() {
   // Prevent hydration mismatch
   if (!mounted) {
     return (
-      <Button variant="ghost" size="icon" className="h-9 w-9">
+      <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl">
         <span className="sr-only">Toggle theme</span>
       </Button>
     );
@@ -75,15 +75,12 @@ export function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
-      className="h-9 w-9"
+      className="h-10 w-10 rounded-xl relative overflow-hidden"
       onClick={toggleTheme}
       aria-label={`Switch to ${effectiveTheme === 'dark' ? 'light' : 'dark'} mode`}
     >
-      {effectiveTheme === 'dark' ? (
-        <Sun className="h-4 w-4" />
-      ) : (
-        <Moon className="h-4 w-4" />
-      )}
+      <Sun className={`h-5 w-5 transition-all duration-300 ${effectiveTheme === 'dark' ? 'scale-0 rotate-90 opacity-0' : 'scale-100 rotate-0 opacity-100'}`} />
+      <Moon className={`absolute h-5 w-5 transition-all duration-300 ${effectiveTheme === 'dark' ? 'scale-100 rotate-0 opacity-100' : 'scale-0 -rotate-90 opacity-0'}`} />
     </Button>
   );
 }
