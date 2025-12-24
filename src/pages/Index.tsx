@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FileText, GitCompare, ArrowRight, Shield, Zap, Eye } from 'lucide-react';
+import { FileText, GitCompare, ArrowRight, Shield, Zap, Eye, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -42,35 +42,51 @@ export default function Index() {
   const canAnalyze = mode === 'single' ? !!doc1Text : !!(doc1Text && doc2Text);
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col">
       <Header />
       
       <main className="flex-1">
         {/* Hero Section */}
         {!result && !loading && (
-          <section className="py-16 sm:py-24 bg-gradient-to-b from-secondary/50 to-background">
-            <div className="container text-center max-w-3xl">
-              <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
+          <section className="relative py-20 sm:py-32 overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
+            <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+            
+            <div className="container relative text-center max-w-4xl">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8 animate-fade-in">
+                <Sparkles className="h-4 w-4" />
+                AI-Powered Document Analysis
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight animate-slide-up font-display">
                 Understand any document in{' '}
-                <span className="text-primary">plain language</span>
+                <span className="gradient-text">plain language</span>
               </h1>
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              
+              <p className="mt-8 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.1s' }}>
                 Upload your offer letter, policy, or contract. Get a clear explanation of what it means, what to look out for, and questions you might want to ask.
               </p>
               
               {/* Trust badges */}
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-primary" />
-                  <span>Documents never stored</span>
+              <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-8 stagger-children">
+                <div className="feature-card flex items-center gap-3 px-5 py-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+                    <Shield className="h-5 w-5 text-primary" />
+                  </div>
+                  <span className="font-medium text-foreground">Documents never stored</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-primary" />
-                  <span>Free to use</span>
+                <div className="feature-card flex items-center gap-3 px-5 py-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
+                    <Zap className="h-5 w-5 text-accent" />
+                  </div>
+                  <span className="font-medium text-foreground">Free to use</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Eye className="h-4 w-4 text-primary" />
-                  <span>No account needed</span>
+                <div className="feature-card flex items-center gap-3 px-5 py-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-success/10">
+                    <Eye className="h-5 w-5 text-success" />
+                  </div>
+                  <span className="font-medium text-foreground">No account needed</span>
                 </div>
               </div>
             </div>
@@ -84,7 +100,7 @@ export default function Index() {
           ) : result ? (
             <div className="animate-fade-in">
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-bold text-foreground">Analysis Results</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display">Analysis Results</h2>
                 <Button variant="outline" onClick={handleReset}>
                   Analyze Another Document
                 </Button>
@@ -97,27 +113,19 @@ export default function Index() {
               )}
             </div>
           ) : (
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl mx-auto animate-fade-in">
               {/* Mode Selector */}
-              <div className="flex gap-2 mb-8 p-1 bg-secondary rounded-lg">
+              <div className="flex gap-2 mb-8 p-1.5 bg-secondary/50 backdrop-blur-sm rounded-2xl border border-border/50">
                 <button
                   onClick={() => setMode('single')}
-                  className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-md text-sm font-medium transition-all ${
-                    mode === 'single' 
-                      ? 'bg-background text-foreground shadow-sm' 
-                      : 'text-muted-foreground hover:text-foreground'
-                  }`}
+                  className={`mode-tab ${mode === 'single' ? 'mode-tab-active' : 'mode-tab-inactive'}`}
                 >
                   <FileText className="h-4 w-4" />
                   Understand Document
                 </button>
                 <button
                   onClick={() => setMode('compare')}
-                  className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-md text-sm font-medium transition-all ${
-                    mode === 'compare' 
-                      ? 'bg-background text-foreground shadow-sm' 
-                      : 'text-muted-foreground hover:text-foreground'
-                  }`}
+                  className={`mode-tab ${mode === 'compare' ? 'mode-tab-active' : 'mode-tab-inactive'}`}
                 >
                   <GitCompare className="h-4 w-4" />
                   Compare Two Documents
@@ -125,9 +133,10 @@ export default function Index() {
               </div>
 
               {/* Document Inputs */}
-              <div className="space-y-6">
-                <div>
-                  <h3 className="font-medium text-foreground mb-3">
+              <div className="space-y-8">
+                <div className="glass-card p-6">
+                  <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2 font-display">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-primary text-primary-foreground text-xs font-bold">1</span>
                     {mode === 'compare' ? 'First Document (Original)' : 'Your Document'}
                   </h3>
                   <DocumentInput 
@@ -135,15 +144,17 @@ export default function Index() {
                     documentNumber={1}
                   />
                   {doc1Text && (
-                    <p className="mt-2 text-sm text-green-600 flex items-center gap-1">
-                      ✓ Document ready ({doc1Text.length.toLocaleString()} characters)
+                    <p className="mt-4 text-sm text-success flex items-center gap-2 font-medium">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-success/20">✓</span>
+                      Document ready ({doc1Text.length.toLocaleString()} characters)
                     </p>
                   )}
                 </div>
 
                 {mode === 'compare' && (
-                  <div>
-                    <h3 className="font-medium text-foreground mb-3">
+                  <div className="glass-card p-6">
+                    <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2 font-display">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-accent text-accent-foreground text-xs font-bold">2</span>
                       Second Document (New/Updated)
                     </h3>
                     <DocumentInput 
@@ -151,8 +162,9 @@ export default function Index() {
                       documentNumber={2}
                     />
                     {doc2Text && (
-                      <p className="mt-2 text-sm text-green-600 flex items-center gap-1">
-                        ✓ Document ready ({doc2Text.length.toLocaleString()} characters)
+                      <p className="mt-4 text-sm text-success flex items-center gap-2 font-medium">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-success/20">✓</span>
+                        Document ready ({doc2Text.length.toLocaleString()} characters)
                       </p>
                     )}
                   </div>
@@ -161,15 +173,16 @@ export default function Index() {
                 <Button 
                   onClick={handleAnalyze}
                   disabled={!canAnalyze}
-                  size="lg"
-                  className="w-full"
+                  size="xl"
+                  variant="gradient"
+                  className="w-full group"
                 >
                   {mode === 'compare' ? 'Compare Documents' : 'Analyze Document'}
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
 
                 {/* Disclaimer */}
-                <p className="text-xs text-center text-muted-foreground">
+                <p className="text-xs text-center text-muted-foreground leading-relaxed">
                   This tool provides informational explanations only, not legal advice. 
                   Always consult a professional for important decisions.
                 </p>
