@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FileText } from 'lucide-react';
+import { ShareModal } from '@/components/ShareModal';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export function Header() {
   return (
@@ -14,25 +16,29 @@ export function Header() {
           </span>
         </Link>
         
-        <nav className="flex items-center gap-6">
+        <nav className="flex items-center gap-4">
           <Link 
             to="/how-it-works" 
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors animated-underline"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors animated-underline hidden sm:block"
           >
             How it Works
           </Link>
           <Link 
             to="/privacy" 
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors animated-underline"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors animated-underline hidden sm:block"
           >
             Privacy
           </Link>
           <Link 
             to="/terms" 
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors animated-underline"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors animated-underline hidden sm:block"
           >
             Terms
           </Link>
+          <div className="flex items-center gap-1 border-l border-border/50 pl-4 ml-2">
+            <ShareModal />
+            <ThemeToggle />
+          </div>
         </nav>
       </div>
     </header>
